@@ -18,7 +18,7 @@
 		{
 			$details=UpdateData::getDetails();
 			echo $this->twig->render('index.html', array(
-				"title" => "hi",
+				"title" => "Time",
 				"response" => $details)) ;
 		}
 	}

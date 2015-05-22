@@ -11,9 +11,11 @@
  			//require __DIR__."/../../configs/CommonUtilities.php" ;
  					
  				$db = DBConnect::getDB() ;
-				$add_user = $db->prepare("UPDATE Time SET Time=Time+5 WHERE ID=:Id ") ;
+ 				date_default_timezone_set("Asia/Kolkata");
+ 				$date=date("Y-m-d H:i:s");
+				$add_user = $db->prepare("UPDATE Time SET Time=Time+5, LastSeen=:lastseen WHERE ID=:Id ") ;
  				$par=array(
- 					
+ 					":lastseen" => $date,
  					":Id" => $id);
 
  				$add_user->execute($par);
@@ -31,10 +33,14 @@
  			//require __DIR__."/../../configs/CommonUtilities.php" ;
  					
  				$db = DBConnect::getDB() ;
-				$add_user = $db->prepare("INSERT INTO Time (Name, ID) VALUES (:name, :Id) ") ;
+				date_default_timezone_set("Asia/Kolkata");
+ 				$date=date("Y-m-d H:i:s");
+				
+				$add_user = $db->prepare("INSERT INTO Time (Name, ID, LastSeen) VALUES (:name, :Id, :lastseen) ") ;
  				$par=array(
  					":name" => $name,
- 					":Id" => $id);
+ 					":Id" => $id,
+ 					":lastseen" => $date);
 
  				$add_user->execute($par);
  				$row=$add_user->fetch();
