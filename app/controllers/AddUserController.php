@@ -49,25 +49,30 @@
 			]);*/
 
 			$details=$response->getbody();
-			
-			$user_active=array();
-			UpdateData::deleteTable();
+			if($response->getbody()['ok'])
+			{
+				$user_active=array();
+				UpdateData::deleteTable();
 
-			foreach($details['users'] as $user)
-			{	//if($user['presence']=="active")
-				//{
-					$user_active[]=array("name" => $user['name'],
-										 "id" => $user['id']);
-					$row=UpdateData::addDetails($user['name'] , $user['id']);
+				foreach($details['users'] as $user)
+				{	//if($user['presence']=="active")
+					//{
+						$user_active[]=array("name" => $user['name'],
+											 "id" => $user['id']);
+						$row=UpdateData::addDetails($user['name'] , $user['id']);
 
-				//}
+					//}
+				}
+
+				//error_log(var_dump($user_active));
+
+				echo $this->twig->render('adduser.html', array(
+					"title" => "Added",
+					"response" => $user_active)) ;	
 			}
-
-			//error_log(var_dump($user_active));
-
-			echo $this->twig->render('adduser.html', array(
-				"title" => "Added",
-				"response" => $user_active)) ;
+			else 
+				var_dump($response);
+			
 		}
 
 

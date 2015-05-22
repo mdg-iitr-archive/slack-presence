@@ -48,25 +48,29 @@
 			    'text'    => 'Hello, world!'
 			]);*/
 
-			$details=$response->getbody();
+			if($response->getbody()['ok'])
+			{
+				$details=$response->getbody();
+						
+						$user_active=array();
 			
-			$user_active=array();
-
-			foreach($details['users'] as $user)
-			{	if($user['presence']=="active")
-				{
-					$user_active[]=array("name" => $user['name'],
-										 "id" => $user['id']);
-					$row=UpdateData::updateDetails($user['name'] , $user['id']);
-
-				}
-			}
-
-			//error_log(var_dump($user_active));
-
-			echo $this->twig->render('update.html', array(
-				"title" => "Update",
-				"response" => $user_active)) ;
+						foreach($details['users'] as $user)
+						{	if($user['presence']=="active")
+							{
+								$user_active[]=array("name" => $user['name'],
+													 "id" => $user['id']);
+								$row=UpdateData::updateDetails($user['name'] , $user['id']);
+			
+							}
+						}
+			
+						//error_log(var_dump($user_active));
+			
+						echo $this->twig->render('update.html', array(
+							"title" => "Update",
+							"response" => $user_active)) ;}
+			else
+				var_dump($response);
 		}
 
 
