@@ -1,0 +1,21 @@
+{
+	"name":"Slack Time Calculator",
+	"description":"Calculate the time spend by every user on MDG Slack",
+	"require":{
+		"torophp/torophp":	"dev-master",
+		"twig/twig":"1.*"
+	},
+	"require-dev":{
+
+		},
+	"autoload":{
+		"psr-4":{
+			"Controllers\\":"app/controllers",
+			"Models\\":"app/models",
+			"Http\\":"app/http",
+			"Core\\":"app/core",
+			"Contracts\\":"app/contracts"
+		}
+	}	
+}
+ 

@@ -1,0 +1,16 @@
+<html>
+	<head>
+	<title>{{title}}</title>
+	</head>
+	<body>
+		<h5>
+		{% for user in response %}
+		{{ user.name }} : {{ user.id }}
+		<hr>
+		{% endfor %}
+
+
+		</h5>
+	</body>
+
+</html>
