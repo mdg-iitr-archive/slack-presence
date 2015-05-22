@@ -4,11 +4,14 @@
 	</head>
 	<body>
 		<h5>
+		<table border="1">
+		<tr>
+		<td>Name</td><td>ID</td></tr>
 		{% for user in response %}
-		{{ user.name }} : {{ user.id }}
-		<hr>
+		<tr><td>{{ user.name }}</td><td>{{ user.id }}</td>
+		</tr>
 		{% endfor %}
-
+		</table>
 
 		</h5>
 	</body>

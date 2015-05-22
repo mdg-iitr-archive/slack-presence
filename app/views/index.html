@@ -4,9 +4,12 @@
 	</head>
 	<body>
 		<h5>
+		
+		<table border="1">
+		<tr>
+		<td>Name</td><td>ID</td><td>Time (in mins )</td><td>Last Seen At</td></tr>
 		{% for user in response %}
-		{{ user.Name }} : {{ user.ID }} = {{user.Time}}			Last Seen at : {{user.LastSeen}}
-		<hr>
+		<tr><td>{{ user.Name }}</td><td>{{ user.ID }}</td><td>{{user.Time}}</td><td>{{user.LastSeen}}</td></tr>
 		{% endfor %}
 
 
