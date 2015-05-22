@@ -1,2 +1,3 @@
 /public/index.php
 /configs/credentials.php
+composer.lock
