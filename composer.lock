@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a7fc4ad4f0b4817a8f3a5cf7e1bea63f",
+    "hash": "1f04c9b9f029c0e95d3980d62c35943e",
     "packages": [
         {
             "name": "torophp/torophp",
